@@ -8,6 +8,7 @@ namespace FortuneTellerBKlein
 {
     class Program
     {
+         
         static void Main(string[] args)
         {
             string firstName;
@@ -18,131 +19,153 @@ namespace FortuneTellerBKlein
             int numSibs;
 
 
+            
+                Console.WriteLine("Please Enter Your First Name");
+                firstName = Console.ReadLine();
 
-            Console.WriteLine("Please Enter Your First Name");
-            firstName = Console.ReadLine();
+                Console.WriteLine("Please Enter Your Last Name");
+                lastName = Console.ReadLine();
 
-            Console.WriteLine("Please Enter Your Last Name");
-            lastName = Console.ReadLine();
+                Console.WriteLine(FullName(firstName, lastName));
 
-            Console.WriteLine("Please Enter Your Age");
-            age = int.Parse(Console.ReadLine());
+                Console.WriteLine("Please Enter Your Age");
+                age = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Please Enter Your Birth Month in Number Form");
-            birthMonth = int.Parse(Console.ReadLine());
+                Console.WriteLine("Please Enter Your Birth Month in Number Form");
+                birthMonth = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Please Enter Your Favorite Color from the ROYGBIV Schema in Letter Form. Enter HELP, if Needed.");
-            favColor = Console.ReadLine().ToUpper();
-
-            if (favColor == "HELP")
-            {
-                Console.WriteLine("ROYGBIV is an acronym for the colors in visible light. Each letter in the acronym is the first letter of a color: R = Red; O = Orange; Y = Yellow; B = Blue; I = Indigo; and V = Violet.");
-                Console.WriteLine("Please Enter Your Favorite Color from the ROYGBIV Schema in Letter Form.");
+                Console.WriteLine("Please Enter Your Favorite Color from the ROYGBIV Schema in Letter Form. Enter HELP, if Needed.");
                 favColor = Console.ReadLine().ToUpper();
-            }
 
-            Console.WriteLine("Please Enter the Number of Siblings that You Have");
-            numSibs = int.Parse(Console.ReadLine());
+                if (favColor == "HELP")
+                {
+                    Console.WriteLine("ROYGBIV is an acronym for the colors in visible light. Each letter in the acronym is the first letter of a color: R = Red; O = Orange; Y = Yellow; B = Blue; I = Indigo; and V = Violet.");
+                    Console.WriteLine("Please Enter Your Favorite Color from the ROYGBIV Schema in Letter Form.");
+                    favColor = Console.ReadLine().ToUpper();
+                }
 
+                Console.WriteLine("Please Enter the Number of Siblings that You Have");
+                numSibs = int.Parse(Console.ReadLine());
+
+                Console.WriteLine(firstName + " " + lastName + " will retire in " + Retire(age) + " years with $" + Money(birthMonth) + " in the bank, a vacation home in " + Vacation(numSibs) + " and a " + Transport(favColor) + ".");
+
+                Console.WriteLine(Prognosis());
+            
+
+     
+        }
+        
+
+        static string FullName(string firstName, string lastName)
+        {
+            return "Greetings, " + firstName + " " + lastName + ". I will tell you your fortune!";
+        }
+
+        static int Retire(int age)
+        {
             int ageMod2 = age % 2;
-            string retire;
-            switch (ageMod2)
+            int retire;
+            if(ageMod2 == 0)
             {
-                case 0:
-                    retire = "20 years";
-                    break;
-
-                case 1:
-                    retire = "25 years";
-                    break;
-
-                default:
-                    retire = "100 years";
-                    break;
+                return retire = 20;
             }
-
-            string vacHome;
-            if (numSibs == 0)
+            else if(ageMod2 == 1)
             {
-                vacHome = "The Shire";
-            }
-            else if (numSibs == 1)
-            {
-                vacHome = "Gondor";
-            }
-            else if (numSibs == 2)
-            {
-                vacHome = "Rivendell";
-            }
-            else if (numSibs == 3)
-            {
-                vacHome = "Rohan";
-            }
-            else if (numSibs > 3)
-            {
-                vacHome = "Lothlorien";
+                return retire = 25;
             }
             else
             {
-                vacHome = "Mordor";
+                return retire = 100;
             }
+            
+            
+        }
 
+        static string Vacation(int numSibs)
+        {
+            string vacHome;
+            if (numSibs == 0)
+            {
+                return vacHome = "The Shire";
+            }
+            else if (numSibs == 1)
+            {
+                return vacHome = "Gondor";
+            }
+            else if (numSibs == 2)
+            {
+                return vacHome = "Rivendell";
+            }
+            else if (numSibs == 3)
+            {
+                return vacHome = "Rohan";
+            }
+            else if (numSibs > 3)
+            {
+                return vacHome = "Lothlorien";
+            }
+            else
+            {
+                return vacHome = "Mordor";
+            }
+        }
+
+        static string Transport(string favColor)
+        {
             string trans;
             switch (favColor)
             {
                 case "R":
-                    trans = "Eagle";
-                    break;
-
+                    return trans = "Eagle";
+                    
                 case "O":
-                    trans = "Shadowfax";
-                    break;
-
+                    return trans = "Shadowfax";
+                    
                 case "Y":
-                    trans = "Orc";
-                    break;
-
+                    return trans = "Orc";
+                    
                 case "G":
-                    trans = "Dragon";
-                    break;
-
+                    return trans = "Dragon";
+                    
                 case "B":
-                    trans = "Pony";
-                    break;
-
+                    return trans = "Pony";
+                    
                 case "I":
-                    trans = "Your own two hairy hobbit feet";
-                    break;
-
+                    return trans = "Your own two hairy hobbit feet";
+                    
                 case "V":
-                    trans = "Ent";
-                    break;
-
+                    return trans = "Ent";
+                    
                 default:
-                    trans = "None";
-                    break;
+                    return trans = "None";
+                   
             }
 
-            string bank;
-            if(birthMonth >= 1 && birthMonth <= 4)
+        }
+        static double Money(int birthMonth)
+        {
+            double bank;
+            if (birthMonth >= 1 && birthMonth <= 4)
             {
-                bank = "$10.00";
+                return bank = 10.00;
             }
             else if (birthMonth >= 5 && birthMonth <= 8)
             {
-                bank = "$1,0000,000,000.00";
+                return bank = 1000000000.00;
             }
             else if (birthMonth >= 9 && birthMonth <= 12)
             {
-                bank = "$100,000.00";
+                return bank = 100000.00;
             }
             else
             {
-                bank = "$0.00";
+                return bank = 0.00;
             }
-           
-            Console.WriteLine(firstName + " " + lastName + " will retire in " + retire + " with " + bank + " in the bank, a vacation home in " + vacHome + " and a " + trans + ".");
+        }
 
+        static string Prognosis()
+        {
+            return "Huzzah! Lucky you!";
         }
     }
 }
